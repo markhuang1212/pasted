@@ -25,7 +25,7 @@ struct PasteItem: View {
     }
     
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             Button(action: {expanded.toggle()}) {
                 Text(item.dataStr)
                     .lineLimit(expanded ? nil : 4)

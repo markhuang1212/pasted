@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 
 class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
@@ -32,6 +33,8 @@ class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
     func putItemToPasteboard(itemId id: UUID) {
         let index = data.firstIndex(where: {$0.id == id})!
         data.move(fromOffsets: IndexSet(integer: index), toOffset: 0)
+        NSPasteboard.general.declareTypes([.string], owner: nil)
+        NSPasteboard.general.setString(data[0].dataStr, forType: .string)
     }
     
     func deleteItem(withId id: UUID) {

@@ -7,15 +7,24 @@
 
 import Foundation
 import SwiftUI
+import Cocoa
 
 struct ContentView: View {
     
     @ObservedObject var pasteDataController: PasteDataController
     
     var body: some View {
-        List {
-            ForEach(pasteDataController.data) { item in
-                PasteItem(pasteDataController: pasteDataController, item: item)
+        if pasteDataController.data.isEmpty {
+            HStack{
+                Text("Empty")
+                    .font(.title)
+            }
+            .frame(width: 360, height: 360)
+        } else {
+            List {
+                ForEach(pasteDataController.data) { item in
+                    PasteItem(pasteDataController: pasteDataController, item: item)
+                }
             }
         }
     }
