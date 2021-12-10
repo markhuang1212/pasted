@@ -7,15 +7,20 @@
 
 import Foundation
 import Cocoa
+import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var window: NSWindow!
+    var popOver: NSPopover!
     var statusBarController: StatusBarController!
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         print("Application Did Finish Launching")
-        statusBarController = StatusBarController()
+        let contentView = ContentView(pasteDataController: PasteDataController.shared)
+        popOver = NSPopover()
+        popOver.contentViewController = NSHostingController(rootView: contentView)
+//        popOver.contentSize = NSSize(width: 360.0, height: 360.0)
+        statusBarController = StatusBarController(popOver: popOver)
     }
     
     func applicationWillTerminate(_ notification: Notification) {

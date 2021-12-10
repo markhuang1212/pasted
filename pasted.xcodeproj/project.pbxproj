@@ -15,6 +15,9 @@
 		861F36CC276304F400B341F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861F36CB276304F400B341F1 /* AppDelegate.swift */; };
 		861F36CE2763059200B341F1 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861F36CD2763059200B341F1 /* StatusBarController.swift */; };
 		865BED642763642700B341F1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED632763642700B341F1 /* main.swift */; };
+		865BED66276364BB00B341F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED65276364BB00B341F1 /* ContentView.swift */; };
+		865BED69276371C800B341F1 /* PasteDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED68276371C800B341F1 /* PasteDataController.swift */; };
+		865BED6B276375D200B341F1 /* PasteboardWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED6A276375D200B341F1 /* PasteboardWatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,10 @@
 		861F36CB276304F400B341F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861F36CD2763059200B341F1 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		865BED632763642700B341F1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		865BED65276364BB00B341F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		865BED672763719300B341F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		865BED68276371C800B341F1 /* PasteDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteDataController.swift; sourceTree = "<group>"; };
+		865BED6A276375D200B341F1 /* PasteboardWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardWatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +104,13 @@
 		861F369D2763049600B341F1 /* pasted */ = {
 			isa = PBXGroup;
 			children = (
+				865BED672763719300B341F1 /* Info.plist */,
 				861F36CB276304F400B341F1 /* AppDelegate.swift */,
 				865BED632763642700B341F1 /* main.swift */,
 				861F36CD2763059200B341F1 /* StatusBarController.swift */,
+				865BED65276364BB00B341F1 /* ContentView.swift */,
+				865BED68276371C800B341F1 /* PasteDataController.swift */,
+				865BED6A276375D200B341F1 /* PasteboardWatcher.swift */,
 				861F36A22763049800B341F1 /* Assets.xcassets */,
 				861F36A72763049800B341F1 /* pasted.entitlements */,
 				861F36A42763049800B341F1 /* Preview Content */,
@@ -262,8 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865BED69276371C800B341F1 /* PasteDataController.swift in Sources */,
 				861F36CC276304F400B341F1 /* AppDelegate.swift in Sources */,
 				861F36CE2763059200B341F1 /* StatusBarController.swift in Sources */,
+				865BED6B276375D200B341F1 /* PasteboardWatcher.swift in Sources */,
+				865BED66276364BB00B341F1 /* ContentView.swift in Sources */,
 				865BED642763642700B341F1 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +444,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pasted/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -458,6 +474,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pasted/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
