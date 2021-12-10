@@ -18,6 +18,8 @@
 		865BED66276364BB00B341F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED65276364BB00B341F1 /* ContentView.swift */; };
 		865BED69276371C800B341F1 /* PasteDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED68276371C800B341F1 /* PasteDataController.swift */; };
 		865BED6B276375D200B341F1 /* PasteboardWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED6A276375D200B341F1 /* PasteboardWatcher.swift */; };
+		865BED6D27637CA100B341F1 /* PasteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED6C27637CA100B341F1 /* PasteItem.swift */; };
+		865BED6F27637EE300B341F1 /* PasteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865BED6E27637EE300B341F1 /* PasteData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		865BED672763719300B341F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		865BED68276371C800B341F1 /* PasteDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteDataController.swift; sourceTree = "<group>"; };
 		865BED6A276375D200B341F1 /* PasteboardWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardWatcher.swift; sourceTree = "<group>"; };
+		865BED6C27637CA100B341F1 /* PasteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteItem.swift; sourceTree = "<group>"; };
+		865BED6E27637EE300B341F1 /* PasteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +113,9 @@
 				865BED632763642700B341F1 /* main.swift */,
 				861F36CD2763059200B341F1 /* StatusBarController.swift */,
 				865BED65276364BB00B341F1 /* ContentView.swift */,
+				865BED6C27637CA100B341F1 /* PasteItem.swift */,
 				865BED68276371C800B341F1 /* PasteDataController.swift */,
+				865BED6E27637EE300B341F1 /* PasteData.swift */,
 				865BED6A276375D200B341F1 /* PasteboardWatcher.swift */,
 				861F36A22763049800B341F1 /* Assets.xcassets */,
 				861F36A72763049800B341F1 /* pasted.entitlements */,
@@ -274,8 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				865BED69276371C800B341F1 /* PasteDataController.swift in Sources */,
+				865BED6F27637EE300B341F1 /* PasteData.swift in Sources */,
 				861F36CC276304F400B341F1 /* AppDelegate.swift in Sources */,
 				861F36CE2763059200B341F1 /* StatusBarController.swift in Sources */,
+				865BED6D27637CA100B341F1 /* PasteItem.swift in Sources */,
 				865BED6B276375D200B341F1 /* PasteboardWatcher.swift in Sources */,
 				865BED66276364BB00B341F1 /* ContentView.swift in Sources */,
 				865BED642763642700B341F1 /* main.swift in Sources */,

@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let contentView = ContentView(pasteDataController: PasteDataController.shared)
         popOver = NSPopover()
         popOver.contentViewController = NSHostingController(rootView: contentView)
-//        popOver.contentSize = NSSize(width: 360.0, height: 360.0)
+        popOver.contentSize = NSSize(width: 360.0, height: 360.0)
         statusBarController = StatusBarController(popOver: popOver)
     }
     

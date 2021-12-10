@@ -7,21 +7,8 @@
 
 import Foundation
 
-var pasteData = [
-    PasteData(dataStr: "Hello"),
-    PasteData(dataStr: "Hi There!")
-]
-
-struct PasteData: Identifiable {
-    var id = UUID()
-    var dataStr: String
-}
 
 class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
-    
-    func NewValueDidArrive(value: String) {
-        addItem(PasteData(dataStr: value))
-    }
     
     static var shared = PasteDataController()
     
@@ -34,6 +21,19 @@ class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
         pasteBoardWatcher.delegate = self
     }
     
+    func NewValueDidArrive(value: String) {
+        if !data.contains(where: { $0.dataStr == value}) {
+            addItem(PasteData(dataStr: value))
+        } else {
+            print("Value already exist")
+        }
+    }
+    
+    func putItemToPasteboard(itemId id: UUID) {
+        let index = data.firstIndex(where: {$0.id == id})!
+        data.move(fromOffsets: IndexSet(integer: index), toOffset: 0)
+    }
+    
     func deleteItem(withId id: UUID) {
         data = data.filter {
             $0.id != id
@@ -42,14 +42,6 @@ class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
     
     func addItem(_ item: PasteData) {
         data.append(item)
-    }
-    
-    func save() {
-        
-    }
-    
-    func load() {
-        
     }
     
 }
