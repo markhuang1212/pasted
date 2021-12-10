@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import CoreText
+import Cocoa
 
 struct PasteItem: View {
     
     @StateObject var pasteDataController: PasteDataController
     
     @State var expanded = false
+    
+    var searchText = ""
     
     var item: PasteData
     
@@ -24,6 +28,13 @@ struct PasteItem: View {
         pasteDataController.putItemToPasteboard(itemId: item.id)
     }
     
+    func formatedDataStr() -> AttributedString {
+        let attrStr = NSMutableAttributedString(string: item.dataStr)
+        let range = attrStr.mutableString.range(of: searchText, options: .caseInsensitive)
+        attrStr.addAttributes([.backgroundColor: NSColor.red], range: range)
+        return AttributedString(attrStr)
+    }
+    
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
@@ -33,7 +44,7 @@ struct PasteItem: View {
                         .foregroundColor(.gray)
                 }
                 Button(action: {expanded.toggle()}) {
-                    Text(item.dataStr)
+                    Text(formatedDataStr())
                         .lineLimit(expanded ? nil : 4)
                 }
                 .buttonStyle(.plain)

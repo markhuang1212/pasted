@@ -44,7 +44,7 @@ struct ContentView: View {
                 ScrollView {
                     VStack {
                         ForEach(getFilteredList()) { item in
-                            PasteItem(pasteDataController: pasteDataController, item: item)
+                            PasteItem(pasteDataController: pasteDataController, searchText: searchText, item: item)
                         }
                         HStack {
                             QuitButton()
