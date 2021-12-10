@@ -18,7 +18,11 @@ class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
     @Published var data: [PasteData]
     
     init() {
+        #if DEBUG
         self.data = pasteData
+        #else
+        self.data = []
+        #endif
         pasteBoardWatcher.delegate = self
     }
     
@@ -44,7 +48,7 @@ class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
     }
     
     func addItem(_ item: PasteData) {
-        data.append(item)
+        data.insert(item, at: 0)
     }
     
 }

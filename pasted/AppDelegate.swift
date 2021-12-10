@@ -18,9 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("Application Did Finish Launching")
         let contentView = ContentView(pasteDataController: PasteDataController.shared)
         popOver = NSPopover()
-        popOver.contentViewController = NSHostingController(rootView: contentView)
         popOver.contentSize = NSSize(width: 360.0, height: 360.0)
         popOver.behavior = .transient
+        popOver.contentViewController = NSHostingController(rootView: contentView)
         statusBarController = StatusBarController(popOver: popOver)
     }
     

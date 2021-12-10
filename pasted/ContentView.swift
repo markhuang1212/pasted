@@ -21,12 +21,18 @@ struct ContentView: View {
             }
             .frame(width: 360, height: 360)
         } else {
-            List {
-                ForEach(pasteDataController.data) { item in
-                    PasteItem(pasteDataController: pasteDataController, item: item)
+            VStack {
+                Text("pasted")
+                    .font(.headline)
+                    .padding([.top], 6)
+                List {
+                    ForEach(pasteDataController.data) { item in
+                        PasteItem(pasteDataController: pasteDataController, item: item)
+                    }
                 }
             }
         }
+
     }
     
 }
