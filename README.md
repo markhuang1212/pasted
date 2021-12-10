@@ -6,9 +6,9 @@ There is NO presistency feature, since pasteboard often contains sensitive data 
 
 ## Demo
 
-![](./demo1.png)
+<img src="demo1.png" width="512px">
 
-![](./demo2.png)
+<img src="demo2.png" width="512px">
 
 ## Author
 
