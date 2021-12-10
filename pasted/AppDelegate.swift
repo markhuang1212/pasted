@@ -15,12 +15,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarController: StatusBarController!
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        print("Application Did Finish Launching")
         let contentView = ContentView(pasteDataController: PasteDataController.shared)
+        
         popOver = NSPopover()
         popOver.contentSize = NSSize(width: 360.0, height: 360.0)
         popOver.behavior = .transient
         popOver.contentViewController = NSHostingController(rootView: contentView)
+        
         statusBarController = StatusBarController(popOver: popOver)
     }
     

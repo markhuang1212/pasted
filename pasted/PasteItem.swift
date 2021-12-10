@@ -26,11 +26,18 @@ struct PasteItem: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            Button(action: {expanded.toggle()}) {
-                Text(item.dataStr)
-                    .lineLimit(expanded ? nil : 4)
+            VStack(alignment: .leading) {
+                if expanded {
+                    Text(item.lastUsed.description)
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+                Button(action: {expanded.toggle()}) {
+                    Text(item.dataStr)
+                        .lineLimit(expanded ? nil : 4)
+                }
+                .buttonStyle(.plain)
             }
-            .buttonStyle(.plain)
             Spacer()
             Button(action: { putItemToPasteboard() }) {
                 Image(systemName: "doc.on.doc.fill")

@@ -13,26 +13,47 @@ struct ContentView: View {
     
     @ObservedObject var pasteDataController: PasteDataController
     
+    @State var searchText: String = ""
+    
+    func getFilteredList() -> [PasteData] {
+        if searchText.isEmpty {
+            return pasteDataController.data
+        } else {
+            return pasteDataController.data.filter { $0.dataStr.lowercased().contains(searchText.lowercased()) }
+        }
+    }
+    
     var body: some View {
         if pasteDataController.data.isEmpty {
-            HStack{
+            VStack {
+                Spacer()
                 Text("Empty")
                     .font(.title)
+                Spacer()
+                QuitButton()
+                    .padding()
             }
             .frame(width: 360, height: 360)
         } else {
-            VStack {
+            VStack(spacing: 0) {
                 Text("pasted")
                     .font(.headline)
-                    .padding([.top], 6)
-                List {
-                    ForEach(pasteDataController.data) { item in
-                        PasteItem(pasteDataController: pasteDataController, item: item)
+                    .frame(height: 24)
+                TextField("Search", text: $searchText)
+                    .padding([.horizontal])
+                ScrollView {
+                    VStack {
+                        ForEach(getFilteredList()) { item in
+                            PasteItem(pasteDataController: pasteDataController, item: item)
+                        }
+                        HStack {
+                            QuitButton()
+                                .padding()
+                        }
                     }
+                    .padding()
                 }
             }
         }
-
     }
-    
 }

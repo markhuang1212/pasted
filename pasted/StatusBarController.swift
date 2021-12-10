@@ -13,21 +13,21 @@ class StatusBarController {
     var statusBar: NSStatusBar
     var statusItem: NSStatusItem
     var statusItemButton: NSStatusBarButton
+    
     var popOver: NSPopover
 
-    
     init(popOver: NSPopover) {
         self.popOver = popOver
         statusBar = NSStatusBar.system
         statusItem = statusBar.statusItem(withLength: NSStatusItem.squareLength)
         statusItemButton = statusItem.button!
         statusItemButton.image = NSImage(systemSymbolName: "doc.on.clipboard", accessibilityDescription: nil)
-        statusItemButton.action = #selector(togglePopOver(_:))
+        statusItemButton.action = #selector(handleStatusItemButtonAction(_:))
+        statusItemButton.sendAction(on: [.rightMouseUp, .leftMouseUp])
         statusItemButton.target = self
     }
     
-    @objc func togglePopOver(_ sender: AnyObject) {
-        print("Toggle PopOver")
+    @objc func handleStatusItemButtonAction(_ sender: AnyObject?) {
         if (popOver.isShown) {
             popOver.performClose(sender)
         } else {

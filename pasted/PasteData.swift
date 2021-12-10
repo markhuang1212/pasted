@@ -9,6 +9,7 @@ import Foundation
 
 struct PasteData: Identifiable {
     var id = UUID()
+    var lastUsed = Date()
     var dataStr: String
     var hashValue: Int {
         get {

@@ -36,6 +36,7 @@ class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
     
     func putItemToPasteboard(itemId id: UUID) {
         let index = data.firstIndex(where: {$0.id == id})!
+        data[index].lastUsed = Date()
         data.move(fromOffsets: IndexSet(integer: index), toOffset: 0)
         NSPasteboard.general.declareTypes([.string], owner: nil)
         NSPasteboard.general.setString(data[0].dataStr, forType: .string)
@@ -48,6 +49,8 @@ class PasteDataController: ObservableObject, PasteboardWatcherDelegate {
     }
     
     func addItem(_ item: PasteData) {
+        var item = item
+        item.lastUsed = Date()
         data.insert(item, at: 0)
     }
     
