@@ -11,9 +11,11 @@ import Cocoa
 
 struct PasteItem: View {
     
-    @StateObject var pasteDataController: PasteDataController
+    @ObservedObject var pasteDataController: PasteDataController
     
     @State var expanded = false
+    
+    var index: Int
     
     var searchText = ""
     

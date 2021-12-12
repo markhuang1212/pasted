@@ -44,7 +44,7 @@ struct ContentView: View {
                 ScrollView {
                     VStack {
                         ForEach(getFilteredList()) { item in
-                            PasteItem(pasteDataController: pasteDataController, searchText: searchText, item: item)
+                            PasteItem(pasteDataController: pasteDataController, index: 0, searchText: searchText, item: item)
                         }
                         HStack {
                             QuitButton()
@@ -52,6 +52,7 @@ struct ContentView: View {
                         }
                     }
                     .padding()
+                    .animation(.easeInOut(duration: 0.3), value: pasteDataController.data.count)
                 }
             }
         }
